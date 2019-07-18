@@ -1,0 +1,68 @@
+BACKUP ~GorionsDream/backup~
+AUTHOR ~Roxanne + Within Amnesia~
+
+VERSION ~V0.5~
+
+AUTO_TRA ~GorionsDream/translations/%s~
+LANGUAGE ~English~
+         ~English~
+         ~GorionsDream/translations/setup.tra~
+
+
+BEGIN ~Gorion's Dream Restored~
+REQUIRE_PREDICATE GAME_IS ~bgee eet~ @01
+
+COPY ~GorionsDream/Are~ ~override~
+COPY ~GorionsDream/Tis~ ~override~
+COPY ~GorionsDream/Spl~ ~override~
+
+EXTEND_TOP ~Player1D.bcs~ ~GorionsDream/scripts/append/gdrplayer1d.baf~
+EXTEND_TOP ~Baldur.bcs~ ~GorionsDream/scripts/append/RestParty.baf~
+
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~attackpc.bcs~ THEN BEGIN
+COMPILE ~GorionsDream/scripts/append/attackpc.baf~
+END
+
+COMPILE
+~GorionsDream/scripts~
+~GorionsDream/dialogue~
+
+COPY ~GorionsDream/Cre/voice.cre~ ~override~
+COPY ~GorionsDream/Cre/poisod.cre~ ~override~
+COPY ~GorionsDream/Cre/gdfaigrd.cre~ ~override~
+COPY ~GorionsDream/Cre/gnolld.cre~ ~override~
+COPY ~GorionsDream/Cre/gnolld2.cre~ ~override~
+COPY ~GorionsDream/Cre/gnolld3.cre~ ~override~
+COPY ~GorionsDream/Cre/gnolld4.cre~ ~override~
+COPY ~GorionsDream/Cre/gnolld5.cre~ ~override~
+COPY ~GorionsDream/Cre/messed.cre~ ~override~
+COPY ~GorionsDream/Cre/warrid.cre~ ~override~
+COPY ~GorionsDream/Cre/womand.cre~ ~override~
+COPY ~GorionsDream/Cre/whitkd.cre~ ~override~
+COPY ~GorionsDream/Cre/ogred.cre~ ~override~
+COPY ~GorionsDream/Cre/gdbandit.cre~ ~override~
+COPY ~GorionsDream/Cre/gdbandt2.cre~ ~override~
+COPY ~GorionsDream/Cre/sorced.cre~ ~override~
+SAY NAME1 @02
+SAY NAME2 @02
+COPY ~GorionsDream/Cre/sorced2.cre~ ~override~
+SAY NAME1 @02
+SAY NAME2 @02
+COPY ~GorionsDream/Cre/goriod.cre~ ~override~
+
+COPY ~GorionsDream/Item/gdpotnd.itm~ ~override~
+	SAY NAME2 @11
+	SAY IDENTIFIED_DESC @12
+COPY ~GorionsDream/Item/gdhornd.itm~ ~override~
+COPY ~GorionsDream/Item/gdclawd.itm~ ~override~
+SAY NAME2 @09
+SAY IDENTIFIED_DESC @10
+COPY ~GorionsDream/Item/gddaggd.itm~ ~override~
+SAY NAME2 @03
+SAY IDENTIFIED_DESC @04
+COPY ~GorionsDream/Item/gdcandld.itm~ ~override~
+SAY NAME2 @07
+SAY IDENTIFIED_DESC @08
+COPY ~GorionsDream/Item/gdskulld.itm~ ~override~
+SAY NAME2 @05
+SAY IDENTIFIED_DESC @06

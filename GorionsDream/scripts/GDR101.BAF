@@ -1,0 +1,12 @@
+IF
+Global("Dream101","gdr101",0)
+THEN
+RESPONSE #100
+CreateCreature("gdbandit",[630.341],N)
+CreateCreature("gdbandit",[490.313],NE)
+CreateCreature("gdbandit",[486.294],NE)
+CreateCreature("gdbandt2",[487.423],NNE)
+CreateCreature("gdbandt2",[513.481],N) 
+SetGlobal("Dream101","gdr101",1)
+END
+

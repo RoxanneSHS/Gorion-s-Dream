@@ -1,0 +1,16 @@
+IF
+GlobalGT("GdrDreamGnoll","GLOBAL",1)
+THEN
+RESPONSE #100
+DestroySelf()
+END
+
+IF
+ActionListEmpty()
+!Range(Protagonist,12)
+See(Protagonist)
+THEN
+RESPONSE #100
+FollowObjectFormation(Protagonist,12,12)
+END
+

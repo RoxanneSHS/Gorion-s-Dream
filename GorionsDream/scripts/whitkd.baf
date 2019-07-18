@@ -1,0 +1,8 @@
+IF
+Global("bsDreamWhitkd","GDR103",0)
+See([PC])
+THEN
+RESPONSE #100
+SetGlobal("bsDreamWhitkd","GDR103",1)
+Dialogue(Player1)
+END

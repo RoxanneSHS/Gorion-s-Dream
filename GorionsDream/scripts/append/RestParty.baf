@@ -1,0 +1,11 @@
+IF
+OR(2)
+Global("GdrDreamGnoll","GLOBAL",5)
+Global("GDDreamComplete","GLOBAL",3)
+!AreaCheck("GDR100")
+THEN
+RESPONSE #100
+SetGlobal("GdrDreamGnoll","GLOBAL",6)
+SetGlobal("GDDreamComplete","GLOBAL",4)
+RestParty()
+END

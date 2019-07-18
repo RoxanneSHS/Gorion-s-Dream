@@ -1,0 +1,8 @@
+IF
+Global("Door","GDR102",1)
+THEN
+RESPONSE #100
+Unlock("DOOR 01")
+OpenDoor("DOOR 01")
+SetGlobal("Door","GDR102",2)
+END

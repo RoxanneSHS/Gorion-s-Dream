@@ -1,0 +1,16 @@
+IF
+Global("CandleTrap","gdr102",1)
+THEN
+RESPONSE #100
+SetGlobal("CandleTrap","gdr102",2)
+Dialogue(Player1)
+END
+
+IF
+Global("DreamAreaGnoll","GDR106",1)
+See(Player1)
+THEN
+RESPONSE #100
+Wait(1)
+Dialogue(Player1)
+END

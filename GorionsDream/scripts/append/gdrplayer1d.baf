@@ -1,0 +1,23 @@
+IF
+GlobalGT("Chapter","Global",6)
+Global("gdStartDream","GLOBAL",0)
+THEN
+RESPONSE #100
+ClearAllActions()
+SetInterrupt(FALSE)
+SetGlobal("gdStartDream","GLOBAL",1)
+Wait(1)
+StorePartyLocations()
+Wait(2)
+ActionOverride(Player2,Rest())
+ActionOverride(Player3,Rest())
+ActionOverride(Player4,Rest())
+ActionOverride(Player5,Rest())
+ActionOverride(Player6,Rest())
+FadeToColor([50.0],0)
+Wait(4)
+ActionOverride(Protagonist,LeaveAreaLUA("GDR100","",[193.311],12))
+SetGlobal("gdStartDream","GLOBAL",2)
+FadeFromColor([50.0],0)
+SetInterrupt(TRUE)
+END

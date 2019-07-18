@@ -1,0 +1,148 @@
+IF
+Global("GdrDreamGnoll","GLOBAL",3)
+Global("Failgnoll","GDR100",0)
+THEN
+RESPONSE #100
+SetGlobal("Failgnoll","GDR100",0)
+CreateCreature("goriod",[245.346],6)
+END
+
+IF
+Global("CreateGorion","GDR100",0)
+THEN
+RESPONSE #100
+SetGlobal("CreateGorion","GDR100",1)
+CreateCreature("goriod",[245.346],8)
+END
+
+IF
+Global("GDDreamComplete","GLOBAL",1)
+Global("Finish","GDR100",0)
+THEN
+RESPONSE #100
+SetGlobal("Finish","GDR100",1)
+CreateCreature("goriod",[245.346],8)
+Continue()
+END
+
+IF
+Global("GDDreamComplete","GLOBAL",1)
+PartyHasItem("gdhornd")
+THEN
+RESPONSE #100
+IncrementGlobal("gdDreamEvil","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("GDDreamComplete","GLOBAL",1)
+PartyHasItem("gdclawd")
+THEN
+RESPONSE #100
+IncrementGlobal("gdDreamEvil","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("GDDreamComplete","GLOBAL",1)
+PartyHasItem("gddaggd")
+THEN
+RESPONSE #100
+IncrementGlobal("gdDreamEvil","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("GDDreamComplete","GLOBAL",1)
+PartyHasItem("gdcandld")
+THEN
+RESPONSE #100
+IncrementGlobal("gdDreamEvil","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("GDDreamComplete","GLOBAL",1)
+PartyHasItem("gdpotnd")
+THEN
+RESPONSE #100
+IncrementGlobal("gdDreamEvil","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("GDDreamComplete","GLOBAL",1)
+PartyHasItem("gdskulld")
+THEN
+RESPONSE #100
+IncrementGlobal("gdDreamEvil","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("GDDreamComplete","GLOBAL",1)
+!PartyHasItem("gdhornd")
+THEN
+RESPONSE #100
+IncrementGlobal("gdDreamEvil","GLOBAL",-1)
+Continue()
+END
+
+IF
+Global("GDDreamComplete","GLOBAL",1)
+!PartyHasItem("gdclawd")
+THEN
+RESPONSE #100
+IncrementGlobal("gdDreamEvil","GLOBAL",-1)
+Continue()
+END
+
+IF
+Global("GDDreamComplete","GLOBAL",1)
+!PartyHasItem("gddaggd")
+THEN
+RESPONSE #100
+IncrementGlobal("gdDreamEvil","GLOBAL",-1)
+Continue()
+END
+
+IF
+Global("GDDreamComplete","GLOBAL",1)
+!PartyHasItem("gdcandld")
+THEN
+RESPONSE #100
+IncrementGlobal("gdDreamEvil","GLOBAL",-1)
+Continue()
+END
+
+IF
+Global("GDDreamComplete","GLOBAL",1)
+!PartyHasItem("gdpotnd")
+THEN
+RESPONSE #100
+IncrementGlobal("gdDreamEvil","GLOBAL",-1)
+Continue()
+END
+
+IF
+Global("GDDreamComplete","GLOBAL",1)
+!PartyHasItem("gdskulld")
+THEN
+RESPONSE #100
+IncrementGlobal("gdDreamEvil","GLOBAL",-1)
+Continue()
+END
+
+IF
+Global("GDDreamComplete","GLOBAL",1)
+THEN
+RESPONSE #100
+TakePartyItem("gdhornd")
+TakePartyItem("gdclawd")
+TakePartyItem("gddaggd")
+TakePartyItem("gdcandld")
+TakePartyItem("gdpotnd")
+TakePartyItem("gdskulld")
+SetGlobal("GDDreamComplete","GLOBAL",2)
+END
+

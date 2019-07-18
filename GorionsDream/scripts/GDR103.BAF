@@ -1,0 +1,8 @@
+IF
+Global("spawnvoice","GDR103",0)
+THEN
+RESPONSE #100
+SetGlobal("spawnvoice","GDR103",1)
+CreateCreature("voice",[1038.455],8)
+END
+
