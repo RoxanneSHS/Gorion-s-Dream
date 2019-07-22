@@ -170,27 +170,27 @@ END
 
 CHAIN
 IF~~THEN Goriod F1
-~As you touch the symbol there is a startling flash and something rushes through your prone body. With a cry you awake and spring to your feet.~ DO~AddSpecialAbility("SPIN119") RestorePartyLocations()~ EXIT
+~As you touch the symbol there is a startling flash and something rushes through your prone body. With a cry you awake and spring to your feet.~ DO~ActionOverride(Player1,AddSpecialAbility("SPIN119")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F2
-~As you touch the symbol there is a startling flash and something rushes through your prone body. With a cry you awake and spring to your feet.~ DO~AddSpecialAbility("SPNCLK") RestorePartyLocations()~ EXIT
+~As you touch the symbol there is a startling flash and something rushes through your prone body. With a cry you awake and spring to your feet.~ DO~ActionOverride(Player1,AddSpecialAbility("SPNCLK")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F3
-~As you touch the symbol there is a startling flash and something rushes through your prone body. With a cry you awake and spring to your feet.~ DO~AddSpecialAbility("SPN858A") RestorePartyLocations()~ EXIT
+~As you touch the symbol there is a startling flash and something rushes through your prone body. With a cry you awake and spring to your feet.~ DO~ActionOverride(Player1,AddSpecialAbility("SPN858A")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F4
-~As you touch the symbol there is a startling flash and something rushes through your prone body. With a cry you awake and spring to your feet.~ DO~AddSpecialAbility("SPN544A") RestorePartyLocations() ~ EXIT
+~As you touch the symbol there is a startling flash and something rushes through your prone body. With a cry you awake and spring to your feet.~ DO~ActionOverride(Player1,AddSpecialAbility("SPN544A")) RestorePartyLocations() ~ EXIT
 
 CHAIN
 IF~~THEN Goriod F5
-~As you touch the symbol there is a startling flash and something rushes through your prone body. With a cry you awake and spring to your feet.~ DO~AddSpecialAbility("SPN543A")RestorePartyLocations()~ EXIT
+~As you touch the symbol there is a startling flash and something rushes through your prone body. With a cry you awake and spring to your feet.~ DO~ActionOverride(Player1,AddSpecialAbility("SPN543A"))RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F6
-~As you touch the symbol there is a startling flash and something rushes through your prone body. With a cry you awake and spring to your feet.~ DO~AddSpecialAbility("SPN546A") RestorePartyLocations() ~ EXIT
+~As you touch the symbol there is a startling flash and something rushes through your prone body. With a cry you awake and spring to your feet.~ DO~ActionOverride(Player1,AddSpecialAbility("SPN546A")) RestorePartyLocations() ~ EXIT
 
 
 CHAIN
