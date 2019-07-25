@@ -1,6 +1,6 @@
 IF
 IsOverMe(Protagonist)
-PartyHasItem("gdcandld")
+PartyHasItem("OLCANDLD")
 Global("CandleTrap","gdr102",0)
 THEN
 RESPONSE #100

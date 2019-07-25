@@ -1,7 +1,7 @@
 BACKUP ~GorionsDream/backup~
 AUTHOR ~Roxanne + Within Amnesia~
 
-VERSION ~V0.5~
+VERSION ~V0.6~
 
 AUTO_TRA ~GorionsDream/translations/%s~
 LANGUAGE ~English~
@@ -14,7 +14,7 @@ REQUIRE_PREDICATE GAME_IS ~bgee eet~ @01
 
 COPY ~GorionsDream/Are~ ~override~
 COPY ~GorionsDream/Tis~ ~override~
-COPY ~GorionsDream/Spl~ ~override~
+COPY ~GorionsDream/Spells~ ~override~
 
 EXTEND_TOP ~Player1D.bcs~ ~GorionsDream/scripts/append/gdrplayer1d.baf~
 EXTEND_TOP ~Baldur.bcs~ ~GorionsDream/scripts/append/RestParty.baf~
@@ -32,8 +32,24 @@ COPY ~GorionsDream/Cre/poisod.cre~ ~override~
 COPY ~GorionsDream/Cre/gdfaigrd.cre~ ~override~
 COPY ~GorionsDream/Cre/gnolld.cre~ ~override~
 COPY ~GorionsDream/Cre/gnolld2.cre~ ~override~
-COPY ~GorionsDream/Cre/gnolld3.cre~ ~override~
-COPY ~GorionsDream/Cre/gnolld4.cre~ ~override~
+COPY ~GorionsDream/Cre/OLGNOLCD.CRE~ ~override~
+	SAY 0x8 ~Gnoll Chieftain~
+	SAY 0xC ~Gnoll Chieftain~
+	WRITE_ASCII 0x2cc ~OLGNOLCD~
+
+
+
+COPY ~GorionsDream/Cre/OLGNOLLD.CRE~ ~override~
+	SAY 0x8 ~Gnoll Lieutenant~
+	SAY 0xC ~Gnoll Lieutenant~
+	WRITE_ASCII 0x2cc ~OLGNOLLD~
+	
+
+
+COPY ~GorionsDream/Cre/OLGNOLVD.CRE~ ~override~
+	SAY 0x8 ~Gnoll Veteran~
+	SAY 0xC ~Gnoll Veteran~
+	WRITE_ASCII 0x2cc ~OLGNOLVD~
 COPY ~GorionsDream/Cre/gnolld5.cre~ ~override~
 COPY ~GorionsDream/Cre/messed.cre~ ~override~
 COPY ~GorionsDream/Cre/warrid.cre~ ~override~
@@ -50,32 +66,145 @@ SAY NAME1 @02
 SAY NAME2 @02
 COPY ~GorionsDream/Cre/goriod.cre~ ~override~
 
-COPY ~GorionsDream/Item/gdpotnd.itm~ ~override~
+COPY ~GorionsDream/Items/OLPOTNGD.ITM~ ~override~
 	SAY NAME2 @11
 	SAY IDENTIFIED_DESC @12
-COPY ~GorionsDream/Item/gdhornd.itm~ ~override~
-COPY ~GorionsDream/Item/gdclawd.itm~ ~override~
+COPY ~GorionsDream/Items/OLHORNGD.ITM~ ~override~
+COPY ~GorionsDream/Items/OLTALOND.ITM~ ~override~
 SAY NAME2 @09
 SAY IDENTIFIED_DESC @10
-COPY ~GorionsDream/Item/gddaggd.itm~ ~override~
+COPY ~GorionsDream/Items/OLDAGGGD.ITM~ ~override~
 SAY NAME2 @03
 SAY IDENTIFIED_DESC @04
-COPY ~GorionsDream/Item/gdcandld.itm~ ~override~
+COPY ~GorionsDream/Items/OLCANDLD.ITM~ ~override~
 SAY NAME2 @07
 SAY IDENTIFIED_DESC @08
-COPY ~GorionsDream/Item/gdskulld.itm~ ~override~
+COPY ~GorionsDream/Items/OLSKULLD.ITM~ ~override~
 SAY NAME2 @05
 SAY IDENTIFIED_DESC @06
 
 ACTION_IF GAME_IS ~eet~ THEN BEGIN
-COPY_EXISTING ~SPNCLK.spl~ ~override~
+COPY_EXISTING ~OLSPI588.spl~ ~override~
+SAY 0x8 #225871
+SAY 0x50 #225871
+COPY_EXISTING ~Olspi301.spl~ ~override~
+SAY 0x8 #226161
+SAY 0x50 #226162
+COPY_EXISTING ~Olspi303.spl~ ~override~
+SAY 0x8 #226418
+SAY 0x50 #226419
+COPY_EXISTING ~Olspi304.spl~ ~override~
+SAY 0x8 #226165
+SAY 0x50 #226166
+COPY_EXISTING ~Olspi306.spl~ ~override~
+SAY 0x8 #226106
+SAY 0x50 #226420
+COPY_EXISTING ~Olspi307.spl~ ~override~
+SAY 0x8 #226421
+SAY 0x50 #225757
+COPY_EXISTING ~Olspi308.spl~ ~override~
+SAY 0x8 #225852
+SAY 0x50 #225867
+COPY_EXISTING ~Olspi309.spl~ ~override~
+SAY 0x8 #226336
+SAY 0x50 #226422
+COPY_EXISTING ~Olspi310.spl~ ~override~
+SAY 0x8 #226180
+SAY 0x50 #226181
+COPY_EXISTING ~Olspi311.spl~ ~override~
+SAY 0x8 #226182
+SAY 0x50 #226183
+COPY_EXISTING ~Olspi312.spl~ ~override~
+SAY 0x8 #226185
+SAY 0x50 #226186
+COPY_EXISTING ~Olspi313.spl~ ~override~
+SAY 0x8 #226426
+SAY 0x50 #226427
+COPY_EXISTING ~Olspi315.spl~ ~override~
+SAY 0x8 #226191
+SAY 0x50 #226192
+COPY_EXISTING ~Olspi317.spl~ ~override~
+SAY 0x8 #226193
+SAY 0x50 #226194
+COPY_EXISTING ~Olspi401.spl~ ~override~
+SAY 0x8 #225968
+SAY 0x50 #226444
+COPY_EXISTING ~Olspi403.spl~ ~override~
+SAY 0x8 #226200
+SAY 0x50 #226201
+COPY_EXISTING ~Olspi408.spl~ ~override~
+SAY 0x8 #225824
+SAY 0x50 #225825
+COPY_EXISTING ~Olspi409.spl~ ~override~
+SAY 0x8 #226211
+SAY 0x50 #226212
+COPY_EXISTING ~Olspi411.spl~ ~override~
+SAY 0x8 #226455
+SAY 0x50 #226456
+COPY_EXISTING ~Olspi412.spl~ ~override~
+SAY 0x8 #226457
+SAY 0x50 #225937
+COPY_EXISTING ~Olspi413.spl~ ~override~
+SAY 0x8 #226219
+SAY 0x50 #226220
+COPY_EXISTING ~Olspi414.spl~ ~override~
+SAY 0x8 #226459
+SAY 0x50 #226460
+COPY_EXISTING ~Olspi416.spl~ ~override~
 SAY 0x8 #226224
 SAY 0x50 #226225
-COPY_EXISTING ~SPN858A.spl~ ~override~
-SAY 0x8 #226092
-SAY 0x50 #226093
-COPY_EXISTING ~SPN543A.spl~ ~override~
-SAY 0x8 #71015
-COPY_EXISTING ~SPN546A.spl~ ~override~
-SAY 0x8 #262044
+COPY_EXISTING ~Olspi417.spl~ ~override~
+SAY 0x8 #226465
+SAY 0x50 #226466
+COPY_EXISTING ~Olspi423.spl~ ~override~
+SAY 0x8 #226475
+SAY 0x50 #226476
+COPY_EXISTING ~Olspi474.spl~ ~override~
+SAY 0x8 #226104
+SAY 0x50 #226221
+COPY_EXISTING ~Olspi477.spl~ ~override~
+SAY 0x8 #226226
+SAY 0x50 #226227
+COPY_EXISTING ~Olspi489.spl~ ~override~
+SAY 0x8 #226451
+SAY 0x50 #226452
+COPY_EXISTING ~Olspi503.spl~ ~override~
+SAY 0x8 #226492
+SAY 0x50 #226493
+COPY_EXISTING ~Olspi504.spl~ ~override~
+SAY 0x8 #226232
+SAY 0x50 #226233
+COPY_EXISTING ~Olspi507.spl~ ~override~
+SAY 0x8 #226236
+SAY 0x50 #226237
+COPY_EXISTING ~Olspi508.spl~ ~override~
+SAY 0x8 #226238
+SAY 0x50 #226239
+COPY_EXISTING ~Olspi509.spl~ ~override~
+SAY 0x8 #226241
+SAY 0x50 #226242
+COPY_EXISTING ~Olspi512.spl~ ~override~
+SAY 0x8 #226247
+SAY 0x50 #226248
+COPY_EXISTING ~Olspi513.spl~ ~override~
+SAY 0x8 #226249
+SAY 0x50 #226250
+COPY_EXISTING ~Olspi514.spl~ ~override~
+SAY 0x8 #226084
+SAY 0x50 #226515
+COPY_EXISTING ~Olspi515.spl~ ~override~
+SAY 0x8 #226253
+SAY 0x50 #226254
+COPY_EXISTING ~Olspi516.spl~ ~override~
+SAY 0x8 #226530
+SAY 0x50 #226531
+COPY_EXISTING ~Olspi518.spl~ ~override~
+SAY 0x8 #226535
+SAY 0x50 #226536
+COPY_EXISTING ~Olspi523.spl~ ~override~
+SAY 0x8 #226546
+SAY 0x50 #226547
+COPY_EXISTING ~Olspi589.spl~ ~override~
+SAY 0x8 #226501
+SAY 0x50 #226502
 END

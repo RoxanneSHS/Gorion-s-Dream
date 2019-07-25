@@ -27,7 +27,7 @@ END
 
 IF
 Global("GDDreamComplete","GLOBAL",1)
-PartyHasItem("gdhornd")
+PartyHasItem("OLHORNGD")
 THEN
 RESPONSE #100
 IncrementGlobal("gdDreamEvil","GLOBAL",1)
@@ -36,7 +36,7 @@ END
 
 IF
 Global("GDDreamComplete","GLOBAL",1)
-PartyHasItem("gdclawd")
+PartyHasItem("OLTALOND")
 THEN
 RESPONSE #100
 IncrementGlobal("gdDreamEvil","GLOBAL",1)
@@ -45,7 +45,7 @@ END
 
 IF
 Global("GDDreamComplete","GLOBAL",1)
-PartyHasItem("gddaggd")
+PartyHasItem("OLDAGGGD")
 THEN
 RESPONSE #100
 IncrementGlobal("gdDreamEvil","GLOBAL",1)
@@ -54,7 +54,7 @@ END
 
 IF
 Global("GDDreamComplete","GLOBAL",1)
-PartyHasItem("gdcandld")
+PartyHasItem("OLCANDLD")
 THEN
 RESPONSE #100
 IncrementGlobal("gdDreamEvil","GLOBAL",1)
@@ -63,7 +63,7 @@ END
 
 IF
 Global("GDDreamComplete","GLOBAL",1)
-PartyHasItem("gdpotnd")
+PartyHasItem("OLPOTNGD")
 THEN
 RESPONSE #100
 IncrementGlobal("gdDreamEvil","GLOBAL",1)
@@ -72,7 +72,7 @@ END
 
 IF
 Global("GDDreamComplete","GLOBAL",1)
-PartyHasItem("gdskulld")
+PartyHasItem("OLSKULLD")
 THEN
 RESPONSE #100
 IncrementGlobal("gdDreamEvil","GLOBAL",1)
@@ -81,7 +81,7 @@ END
 
 IF
 Global("GDDreamComplete","GLOBAL",1)
-!PartyHasItem("gdhornd")
+!PartyHasItem("OLHORNGD")
 THEN
 RESPONSE #100
 IncrementGlobal("gdDreamEvil","GLOBAL",-1)
@@ -90,7 +90,7 @@ END
 
 IF
 Global("GDDreamComplete","GLOBAL",1)
-!PartyHasItem("gdclawd")
+!PartyHasItem("OLTALOND")
 THEN
 RESPONSE #100
 IncrementGlobal("gdDreamEvil","GLOBAL",-1)
@@ -99,7 +99,7 @@ END
 
 IF
 Global("GDDreamComplete","GLOBAL",1)
-!PartyHasItem("gddaggd")
+!PartyHasItem("OLDAGGGD")
 THEN
 RESPONSE #100
 IncrementGlobal("gdDreamEvil","GLOBAL",-1)
@@ -108,7 +108,7 @@ END
 
 IF
 Global("GDDreamComplete","GLOBAL",1)
-!PartyHasItem("gdcandld")
+!PartyHasItem("OLCANDLD")
 THEN
 RESPONSE #100
 IncrementGlobal("gdDreamEvil","GLOBAL",-1)
@@ -117,7 +117,7 @@ END
 
 IF
 Global("GDDreamComplete","GLOBAL",1)
-!PartyHasItem("gdpotnd")
+!PartyHasItem("OLPOTNGD")
 THEN
 RESPONSE #100
 IncrementGlobal("gdDreamEvil","GLOBAL",-1)
@@ -126,7 +126,7 @@ END
 
 IF
 Global("GDDreamComplete","GLOBAL",1)
-!PartyHasItem("gdskulld")
+!PartyHasItem("OLSKULLD")
 THEN
 RESPONSE #100
 IncrementGlobal("gdDreamEvil","GLOBAL",-1)
@@ -137,12 +137,12 @@ IF
 Global("GDDreamComplete","GLOBAL",1)
 THEN
 RESPONSE #100
-TakePartyItem("gdhornd")
-TakePartyItem("gdclawd")
-TakePartyItem("gddaggd")
-TakePartyItem("gdcandld")
-TakePartyItem("gdpotnd")
-TakePartyItem("gdskulld")
+TakePartyItem("OLHORNGD")
+TakePartyItem("OLTALOND")
+TakePartyItem("OLDAGGGD")
+TakePartyItem("OLCANDLD")
+TakePartyItem("OLPOTNGD")
+TakePartyItem("OLSKULLD")
 SetGlobal("GDDreamComplete","GLOBAL",2)
 END
 
