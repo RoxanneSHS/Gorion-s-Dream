@@ -30,7 +30,7 @@ COMPILE
 COPY ~GorionsDream/Cre/voice.cre~ ~override~
 COPY ~GorionsDream/Cre/poisod.cre~ ~override~
 COPY ~GorionsDream/Cre/gdfaigrd.cre~ ~override~
-COPY ~GorionsDream/Cre/gnolld.cre~ ~override~
+COPY ~GorionsDream/Cre/gnolld1.cre~ ~override~
 COPY ~GorionsDream/Cre/gnolld2.cre~ ~override~
 COPY ~GorionsDream/Cre/OLGNOLCD.CRE~ ~override~
 	SAY 0x8 ~Gnoll Chieftain~
