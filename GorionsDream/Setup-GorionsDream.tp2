@@ -1,7 +1,7 @@
 BACKUP ~GorionsDream/backup~
 AUTHOR ~Roxanne + Within Amnesia~
 
-VERSION ~V0.6~
+VERSION ~V0.7~
 
 AUTO_TRA ~GorionsDream/translations/%s~
 LANGUAGE ~English~

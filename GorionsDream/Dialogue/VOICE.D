@@ -60,7 +60,7 @@ CHAIN
 IF ~True()~ THEN SORCED2 candl3
 ~Thank you, I am renewed. You have resisted great temptation for a strangers benefit. A rare act of compassion for one destined so.~ DO~TakePartyItem("gdcandld")~
 ==Voice~You have wasted the power of the candle on the old man! There is much to be done before you are worthy!~
-= ~Seek the dagger next! It is nearby in the hands of a great evil Ogre! Slay it and take your rightful prize!~DO ~FadeToColor([50.0],0) Wait(2) ActionOverride(Player1,LeaveAreaLUA("gdr103","",[699.54],3)) FadeFromColor([50.0],0) ~ EXIT
+= ~Seek the dagger next! It is nearby in the hands of a great evil Ogre! Slay it and take your rightful prize!~DO ~FadeToColor([50.0],0) Wait(2) TakePartyItem("gdcandld") Wait(2) ActionOverride(Player1,LeaveAreaLUA("gdr103","",[699.54],3)) FadeFromColor([50.0],0) ~ EXIT
 
 CHAIN
 IF ~~ THEN Voice candl4

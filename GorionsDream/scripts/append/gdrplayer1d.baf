@@ -1,5 +1,6 @@
 IF
 GlobalGT("Chapter","Global",6)
+Global("EndofBG1","Global",0)
 Global("gdStartDream","GLOBAL",0)
 THEN
 RESPONSE #100
