@@ -2,465 +2,465 @@ BEGIN Sorced2
 
 CHAIN
 IF WEIGHT #-2~Global("GDRDream","GLOBAL",0)~ THEN warrid help1
-~Help! I need your aid! There are too many!~
-==Voice~You've not the time for this! You must get the talon before it's taken by another!~
-==Voice~Leave the fool to his own battle! You have a destiny to follow!~
-==warrid~I am so cold... (moan)... I... am dying... Please... stay with me awhile...~
-==Voice~Leave him. Get the talon! He is beyond help. It is pointless to stay!~
+@0
+==Voice@1
+==Voice@2
+==warrid@3
+==Voice@4
 END
-++~You are right. Only a weakling asks for help.~+ help2
-++~I cannot leave him to die alone!~+ help3
+++@5+ help2
+++@6+ help3
 
 CHAIN
 IF~~THEN warrid help2
-~I don't want to die alone...~DO~GiveItem("OLTALOND",Player1)ActionOverride(Myself,Kill(Myself))~
-==Voice~The talon that gives power to those demanding, and abandons the weak to their fate. You are stronger for it.~ DO ~FadeToColor([50.0],0)  Wait(2) ActionOverride(Player1,LeaveAreaLUA("GDR104","",[1342.1061],7)) FadeFromColor([50.0],0) ~ EXIT
+@7DO~GiveItem("OLTALOND",Player1)ActionOverride(Myself,Kill(Myself))~
+==Voice@8 DO ~FadeToColor([50.0],0)  Wait(2) ActionOverride(Player1,LeaveAreaLUA("GDR104","",[1342.1061],7)) FadeFromColor([50.0],0) ~ EXIT
 
 CHAIN
 IF~~THEN warrid help3
-~Thank you...~
-==Voice~You have squandered your time and lost the talon! Unfortunate. Changes will have to be made.~ DO ~FadeToColor([50.0],0)  Wait(2) ActionOverride(Player1,LeaveAreaLUA("GDR104","",[1342.1061],7)) FadeFromColor([50.0],0) ~ EXIT
+@9
+==Voice@10 DO ~FadeToColor([50.0],0)  Wait(2) ActionOverride(Player1,LeaveAreaLUA("GDR104","",[1342.1061],7)) FadeFromColor([50.0],0) ~ EXIT
 
 CHAIN
 IF WEIGHT #-2~Global("GDRDream","GLOBAL",0)~ THEN messed deliv1
-~Salutations! I have come looking for someone, to deliver a gift. A horn actually.~
-==Voice~It is the horn you seek! Claim what should be yours!~
-==messed~I seek the First Reader of this great library. Perhaps you have seen him? This is to be his property, and I can give it to no other.~
-==Voice~It is of no concern who it's truly for! Take what is meant for you! He'll never know the difference!~
-==messed~Do you claim to be the First Reader?~ 
+@11
+==Voice@12
+==messed@13
+==Voice@14
+==messed@15 
 END
-++ ~Yes, I am who you seek.~ + deliv2
-++ ~No, and I have not seen him.~ + deliv3
+++ @16 + deliv2
+++ @17 + deliv3
 
 CHAIN
 IF~~THEN messed deliv2
-~Then I bear a message for you as well.~ DO ~GiveItem("OLHORNGD",Player1) ActionOverride(Myself,Kill(Myself))~
-==Voice~The horn with the will to take what is yours, and what should be yours.~ DO ~FadeToColor([50.0],0) Wait(2) ActionOverride(Player1,LeaveAreaLUA("GDR102","",[350.408],10)) FadeFromColor([50.0],0)~ EXIT
+@18 DO ~GiveItem("OLHORNGD",Player1) ActionOverride(Myself,Kill(Myself))~
+==Voice@19 DO ~FadeToColor([50.0],0) Wait(2) ActionOverride(Player1,LeaveAreaLUA("GDR102","",[350.408],10)) FadeFromColor([50.0],0)~ EXIT
 
 CHAIN
 IF~~THEN messed deliv3
-~Nor would you want the gift I bear. I take my leave.~DO~EscapeArea()~
-==Voice~You betray what you were born to be! There will be a price to pay!~DO ~FadeToColor([50.0],0) Wait(2) ActionOverride(Player1,LeaveAreaLUA("GDR102","",[350.408],10)) FadeFromColor([50.0],0)~ EXIT
+@20DO~EscapeArea()~
+==Voice@21DO ~FadeToColor([50.0],0) Wait(2) ActionOverride(Player1,LeaveAreaLUA("GDR102","",[350.408],10)) FadeFromColor([50.0],0)~ EXIT
 
 CHAIN
 IF WEIGHT #-2~Global("GDRDream","GLOBAL",0)~ THEN sorced candl1
-~Young one! Please stop a while. I need your help. I am old and dying... and I've one hope left to me. In my room... there is an enchanted candle. It has one last wish spell within it. I am too weak to retrieve it, but you could.~
-==Voice~It is the candle you must seek!~
-==sorced~This candle is my last chance, child. Please... bring it to me.~DO~SetGlobal("Door","GDR102",1)~
-==Voice~Forget the old man! His time is past! The wish should be yours!~EXIT
+@22
+==Voice@23
+==sorced@24DO~SetGlobal("Door","GDR102",1)~
+==Voice@25EXIT
 
 CHAIN
 IF WEIGHT #-2~ Global("CandleTrap","gdr102",2) ~ THEN Voice candl2
-~Use it yourself, and know the legacy of your true father!~
+@26
 END
-++~No! It is not mine to use.~DO ~SetGlobal("CandleTrap","gdr102",3) ActionOverride("sorced",DestroySelf()) CreateCreature("sorced2",[483.249],0) Wait(1)~ EXTERN SORCED2 candl3
-++~I will. This old fool has no need of it.~ DO ~ActionOverride("sorced",Kill("sorced")) SetGlobal("CandleTrap","gdr102",3)~ + candl4
+++@27DO ~SetGlobal("CandleTrap","gdr102",3) ActionOverride("sorced",DestroySelf()) CreateCreature("sorced2",[483.249],0) Wait(1)~ EXTERN SORCED2 candl3
+++@28 DO ~ActionOverride("sorced",Kill("sorced")) SetGlobal("CandleTrap","gdr102",3)~ + candl4
 
 CHAIN
 IF ~True()~ THEN SORCED2 candl3
-~Thank you, I am renewed. You have resisted great temptation for a strangers benefit. A rare act of compassion for one destined so.~ DO~TakePartyItem("gdcandld")~
-==Voice~You have wasted the power of the candle on the old man! There is much to be done before you are worthy!~
-= ~Seek the dagger next! It is nearby in the hands of a great evil Ogre! Slay it and take your rightful prize!~DO ~FadeToColor([50.0],0) Wait(2) TakePartyItem("gdcandld") Wait(2) ActionOverride(Player1,LeaveAreaLUA("gdr103","",[699.54],3)) FadeFromColor([50.0],0) ~ EXIT
+@29 DO~TakePartyItem("gdcandld")~
+==Voice@30
+= @31DO ~FadeToColor([50.0],0) Wait(2) TakePartyItem("gdcandld") Wait(2) ActionOverride(Player1,LeaveAreaLUA("gdr103","",[699.54],3)) FadeFromColor([50.0],0) ~ EXIT
 
 CHAIN
 IF ~~ THEN Voice candl4
-~You have done well.~ 
-=~Seek the dagger next! It is nearby in the hands of a great evil Ogre! Slay it and take your rightful prize!~ DO ~FadeToColor([50.0],0) Wait(2) ActionOverride(Player1,LeaveAreaLUA("gdr103","",[699.54],3)) FadeFromColor([50.0],0) ~ EXIT
+@32 
+=@31 DO ~FadeToColor([50.0],0) Wait(2) ActionOverride(Player1,LeaveAreaLUA("gdr103","",[699.54],3)) FadeFromColor([50.0],0) ~ EXIT
 
 CHAIN
 IF WEIGHT #-2~Global("GDRDream","GLOBAL",0)~ THEN WHITKD Ogrebad1
-~You there! Help me dispose of this beast! His kind are a plague on the land!~
-==Ogred~Me no beast! Me don't want fight! Go 'way!~
-==Whitkd ~Don't believe a word it says! Born evil they are! Everyone knows that! The only good ogre is a dead ogre!~
-==Voice~Look at them! The knight is obviously the one to help! The beast cannot be other than it was born to be! Kill it!~
-==Ogred ~Shiny man attack ME! I be good but he make fight! He want kill for no reason!~
-==Voice ~The beast is an ogre! They are evil; they cannot be otherwise! Do what you know MUST be done! Will you attack it or not?!~
+@33
+==Ogred@34
+==Whitkd @35
+==Voice@36
+==Ogred @37
+==Voice @38
 END
-++~Ogre or not, this creature is no threat. I'll not harm him!~EXTERN OGRED Ogrebad2
-++~The beast will die, as all of its kind should!~EXTERN WHITKD Ogrebad3
+++@39EXTERN OGRED Ogrebad2
+++@40EXTERN WHITKD Ogrebad3
 
 CHAIN
 IF~~THEN OGRED Ogrebad2
-~You no hurt me, me no hurt you! Me don't care if me born bad! Me be good if me want to! You too... remember. You born VERY bad. Maybe you be good if you want too.~
-==Voice ~You disrespect your true calling at every turn. It will make your destiny all the more painful!~ DO ~FadeToColor([50.0],0) Wait(2) ActionOverride(Player1,LeaveAreaLUA("gdr106","",[2174.1811],7)) FadeFromColor([50.0],0) ~ EXIT
+@41
+==Voice @42 DO ~FadeToColor([50.0],0) Wait(2) ActionOverride(Player1,LeaveAreaLUA("gdr106","",[2174.1811],7)) FadeFromColor([50.0],0) ~ EXIT
 
 CHAIN
 IF~~ THEN WHITKD Ogrebad3
-~You chose right! Beings of flesh ARE what they ARE. There is no escaping your destiny. Best you remember that! Here, this is yours!~ DO~ActionOverride("ogred",Kill("ogred")) 	GiveItem("OLDAGGGD",Player1)~
-==Voice~A dagger of bone. A piece of the father bred in the child. You will be what you were born to be.~ DO ~FadeToColor([50.0],0) Wait(2) ActionOverride(Player1,LeaveAreaLUA("gdr106","",[2174.1811],7)) FadeFromColor([50.0],0) ~ EXIT
+@43 DO~ActionOverride("ogred",Kill("ogred")) 	GiveItem("OLDAGGGD",Player1)~
+==Voice@44 DO ~FadeToColor([50.0],0) Wait(2) ActionOverride(Player1,LeaveAreaLUA("gdr106","",[2174.1811],7)) FadeFromColor([50.0],0) ~ EXIT
 
 CHAIN
 IF WEIGHT #-2~ Global("DreamAreaGnoll","GDR106",1) ~ THEN Voice Gnoll1
-~The potion you seek is here! Search the bodies! Their dead hold the prize!~
+@45
 DO ~SetGlobal("DreamAreaGnoll","GDR106",2)ActionOverride(Myself,DestroySelf()) ~ EXIT
 
 CHAIN
 IF WEIGHT #-3~Global("GdrDreamGnoll","GLOBAL",1)~ THEN Poisod  Poison1
-~Please... that pack of gnolls... they poisoned me. Was there a flask among them? It must be the antidote. Please...~
+@46
 DO~SetGlobal("GdrDreamGnoll","GLOBAL",2)~ EXIT
 
 CHAIN
 IF WEIGHT #-2~PartyHasItem("OLPOTNGD")~ THEN Poisod  Poison2
-~Please... that pack of gnolls... they poisoned me. Was there a flask among them? It must be the antidote. Please...~
-==Voice~Ignore him! Drink the potion yourself and know the essence of your heritage!~
-==Poisod~Please... show some charity... I'll die without it.~ 
+@46
+==Voice@47
+==Poisod@48 
 END
-++ ~My destiny is more important than your paltry life. Cheers.~ EXTERN VOICE Poison4
-++~I cannot refuse this man his very life! He needs this potion more than I!~ + Poison3
+++ @49 EXTERN VOICE Poison4
+++@50 + Poison3
 
 CHAIN
 IF~~THEN Poisod Poison3
-~Thank you. Your actions are my antidote. Let the blood of the father not despoil the <PRO_SONDAUGHTER>!~
+@51
 DO~TakePartyItem("OLPOTNGD")~
-==VOICE~It is an insult to the very blood in your veins! You WILL learn to act accordingly!~
+==VOICE@52
 DO ~FadeToColor([50.0],0) Wait(2) ActionOverride(Player1,LeaveAreaLUA("GDR108","",[280.1550],8))
 FadeFromColor([50.0],0) ~ EXIT
 
 CHAIN
 IF ~~ THEN VOICE Poison4
-~Drink deep the blood of the father and the tears of the dead. They shall sustain you, for they are the very essence of your destiny!~ DO ~FadeToColor([50.0],0) Wait(2) ActionOverride(Player1,LeaveAreaLUA("GDR108","",[280.1550],8)) FadeFromColor([50.0],0) ~ EXIT
+@53 DO ~FadeToColor([50.0],0) Wait(2) ActionOverride(Player1,LeaveAreaLUA("GDR108","",[280.1550],8)) FadeFromColor([50.0],0) ~ EXIT
 
 CHAIN
 IF WEIGHT #-2~Global("GDRDream","GLOBAL",0)~ THEN Womand Last1
-~Greetings, fellow traveler. I have been entrusted to give this skull to they who are most worthy.~
+@54
 DO~SetGlobal("GdrDreamGnoll","GLOBAL",4)~
-==Voice~It is the last item you seek! Of course you're worthy of it!~
-==Womand~The recipient must be more heroic, charitable, courageous, and HUMBLE than anyone else living or dead. Are you such a person?~
-==Voice ~You know you are all that and more! You have power immeasurable in your future! You are destined for a veritable godhood!~ 
+==Voice@55
+==Womand@56
+==Voice @57 
 END
-++~I am all that you seek! There are none alive or dead better than I!~ + Last2
-++~Many a great person has walked this land. I cannot claim to be above them all.~+ Last3
+++@58 + Last2
+++@59+ Last3
 
 CHAIN
 IF~~THEN Womand Last2
-~Truly you deserve this and whatever else it brings. You've the ego of a deity to believe yourself humble and yet claim to be better than all who have died. It will certainly make the bonding easier... though not for you!~ 
+@60 
 DO~GiveItem("OLSKULLD",Protagonist) SetGlobal("GDDreamComplete","GLOBAL",1)~
-==Voice~It is the Godhead itself, literal and figurative! Prepare yourself, for the return will come soon!~ DO ~FadeToColor([50.0],0) Wait(2) ActionOverride(Player1,LeaveAreaLUA("gdr100","",[193.311],13)) FadeFromColor([50.0],0) ~ EXIT
+==Voice@61 DO ~FadeToColor([50.0],0) Wait(2) ActionOverride(Player1,LeaveAreaLUA("gdr100","",[193.311],13)) FadeFromColor([50.0],0) ~ EXIT
 
 CHAIN
 IF~~THEN Womand Last3
-~The Godhead is rejected! Can there yet be hope? We shall see...~
+@62
 DO~SetGlobal("GDDreamComplete","GLOBAL",1)~
-==Voice~Your fate will be sealed despite your petty rejection of the ways of your father. The return is nigh regardless!~DO ~FadeToColor([50.0],0) Wait(2) ActionOverride(Player1,LeaveAreaLUA("gdr100","",[193.311],13)) FadeFromColor([50.0],0) ~ EXIT
+==Voice@63DO ~FadeToColor([50.0],0) Wait(2) ActionOverride(Player1,LeaveAreaLUA("gdr100","",[193.311],13)) FadeFromColor([50.0],0) ~ EXIT
 
 
 CHAIN
 IF WEIGHT #-3~Global("GdrDreamGnoll","GLOBAL",3) ~ THEN Goriod Fail
-~(As the gnoll's blade slashes into your chest you awake with a start and a strangled cry.)~
-= ~(But are you awake? Or is this still part of the dream? You are back in the Between where Gorion found you just minutes - or was it hours? - ago.)~
-=~Child, I fear much. You are not strong yet like you would need to be to face the challenges set by your father. Continue to learn, <CHARNAME>. The return is nigh regardless!~
+@64
+= @65
+=@66
 DO~AddXPObject(Protagonist,6000) SetGlobal("GdrDreamGnoll","GLOBAL",5) RestorePartyLocations()~ EXIT
 
 
 CHAIN
 IF WEIGHT #-3~Global("GDDreamComplete","GLOBAL",2) ~ THEN Goriod Finish
-~Child, you saw the powers battling over your fate and you saw the decisions that you must make that can impact so many, be it good or bad.~
+@67
 DO~SetGlobal("GDDreamComplete","GLOBAL",3)~
-==Goriod IF ~GlobalGT("gdDreamEvil","GLOBAL",1)~THEN~(Sigh) Have I not prepared you enough, my adopted <PRO_SONDAUGHTER>? Are those ideas of evil power too strong for you to withstand?~
-==Goriod IF ~GlobalLT("gdDreamEvil","GLOBAL",0)~THEN~I hope that I prepared you enough, my adopted <PRO_SONDAUGHTER>. Those ideas of evil power are not strong enough for you to withstand.~
-==Goriod IF ~OR(2)Global("gdDreamEvil","GLOBAL",1) Global("gdDreamEvil","GLOBAL",0)~THEN~This night leaves much open, my adopted <PRO_SONDAUGHTER>. Are those ideas of evil power too strong for you to withstand or will you be steadfast? Time alone can tell - or your heart.~
-==Goriod~From your restless dreams there comes a tantalising glimpse of the power within you. Vivid images of flashing runes, glyphs and symbols dance about your mind's eye as if palpable and yours for the taking. The glittering lights twinkle as if stars beckoning great power to those whom seek them out. Perhaps with a grasp one can capture these ethereal stars from the mind's canvas of sky.~
+==Goriod IF ~GlobalGT("gdDreamEvil","GLOBAL",1)~THEN@68
+==Goriod IF ~GlobalLT("gdDreamEvil","GLOBAL",0)~THEN@69
+==Goriod IF ~OR(2)Global("gdDreamEvil","GLOBAL",1) Global("gdDreamEvil","GLOBAL",0)~THEN@70
+==Goriod@71
 END
-IF~Global("gdDreamEvil","GLOBAL",-6)~THEN REPLY~Dire Charm~+ F1
-IF~Global("gdDreamEvil","GLOBAL",-6)~THEN REPLY~Confusion~+ F2
-IF~Global("gdDreamEvil","GLOBAL",-6)~THEN REPLY~Lower Resistance~+ F3
-IF~Global("gdDreamEvil","GLOBAL",-6)~THEN REPLY~Cure Medium Wounds~+ F4
-IF~Global("gdDreamEvil","GLOBAL",-6)~THEN REPLY~Death Ward~+ F5
-IF~Global("gdDreamEvil","GLOBAL",-6)~THEN REPLY~Raise Dead~+ F6
-IF~Global("gdDreamEvil","GLOBAL",-4)~THEN REPLY~Hold Person~+ F11
-IF~Global("gdDreamEvil","GLOBAL",-4)~THEN REPLY~Greater Malison~+ F12
-IF~Global("gdDreamEvil","GLOBAL",-4)~THEN REPLY~Phantom Blade~+ F13
-IF~Global("gdDreamEvil","GLOBAL",-4)~THEN REPLY~Cure Disease~+ F14
-IF~Global("gdDreamEvil","GLOBAL",-4)~THEN REPLY~Negative Plane Protection~+ F15
-IF~Global("gdDreamEvil","GLOBAL",-4)~THEN REPLY~Repulse Undead~+ F16
-IF~Global("gdDreamEvil","GLOBAL",-2)~THEN REPLY~Lightning Bolt~+ F21
-IF~Global("gdDreamEvil","GLOBAL",-2)~THEN REPLY~Spawn Spider~+ F22
-IF~Global("gdDreamEvil","GLOBAL",-2)~THEN REPLY~Cone of Cold~+ F23
-IF~Global("gdDreamEvil","GLOBAL",-2)~THEN REPLY~Rigid Thinking~+ F24
-IF~Global("gdDreamEvil","GLOBAL",-2)~THEN REPLY~Protection From Evil, 10' Radius~+ F25
-IF~Global("gdDreamEvil","GLOBAL",-2)~THEN REPLY~Righteous Magic~+ F26
-IF~Global("gdDreamEvil","GLOBAL",0)~THEN REPLY~Invisibility, 10' Radius~+ F31
-IF~Global("gdDreamEvil","GLOBAL",0)~THEN REPLY~Enchanted Weapon~+ F32
-IF~Global("gdDreamEvil","GLOBAL",0)~THEN REPLY~Sunfire~+ F33
-IF~Global("gdDreamEvil","GLOBAL",0)~THEN REPLY~Strength Of One~+ F34
-IF~Global("gdDreamEvil","GLOBAL",0)~THEN REPLY~Lesser Restoration~+ F35
-IF~Global("gdDreamEvil","GLOBAL",0)~THEN REPLY~Magic Resistance~+ F36
-IF~Global("gdDreamEvil","GLOBAL",2)~THEN REPLY~Flame Arrow~+ F41
-IF~Global("gdDreamEvil","GLOBAL",2)~THEN REPLY~Spirit Armor~+ F42
-IF~Global("gdDreamEvil","GLOBAL",2)~THEN REPLY~Conjure Lesser Fire Elemental~+ F43
-IF~Global("gdDreamEvil","GLOBAL",2)~THEN REPLY~Glyph of Warding~+ F44
-IF~Global("gdDreamEvil","GLOBAL",2)~THEN REPLY~Cloak of Fear~+ F45
-IF~Global("gdDreamEvil","GLOBAL",2)~THEN REPLY~Champion's Strength~+ F46
-IF~Global("gdDreamEvil","GLOBAL",4)~THEN REPLY~Skull Trap~+ F51
-IF~Global("gdDreamEvil","GLOBAL",4)~THEN REPLY~Contagion~+ F52
-IF~Global("gdDreamEvil","GLOBAL",4)~THEN REPLY~Feeblemind~+ F53
-IF~Global("gdDreamEvil","GLOBAL",4)~THEN REPLY~Animate Dead~+ F54
-IF~Global("gdDreamEvil","GLOBAL",4)~THEN REPLY~Free Action~+ F55
-IF~Global("gdDreamEvil","GLOBAL",4)~THEN REPLY~Chaotic Commands~+ F56
-IF~Global("gdDreamEvil","GLOBAL",6)~THEN REPLY~Monster Summoning I~+ F61
-IF~Global("gdDreamEvil","GLOBAL",6)~THEN REPLY~Emotion: Hopelessness~+ F62
-IF~Global("gdDreamEvil","GLOBAL",6)~THEN REPLY~Chaos~+ F63
-IF~Global("gdDreamEvil","GLOBAL",6)~THEN REPLY~Miscast Magic~+ F64
-IF~Global("gdDreamEvil","GLOBAL",6)~THEN REPLY~Cause Serious Wounds~+ F65
-IF~Global("gdDreamEvil","GLOBAL",6)~THEN REPLY~Greater Command~+ F66
+IF~Global("gdDreamEvil","GLOBAL",-6)~THEN REPLY@72+ F1
+IF~Global("gdDreamEvil","GLOBAL",-6)~THEN REPLY@73+ F2
+IF~Global("gdDreamEvil","GLOBAL",-6)~THEN REPLY@74+ F3
+IF~Global("gdDreamEvil","GLOBAL",-6)~THEN REPLY@75+ F4
+IF~Global("gdDreamEvil","GLOBAL",-6)~THEN REPLY@76+ F5
+IF~Global("gdDreamEvil","GLOBAL",-6)~THEN REPLY@77+ F6
+IF~Global("gdDreamEvil","GLOBAL",-4)~THEN REPLY@78+ F11
+IF~Global("gdDreamEvil","GLOBAL",-4)~THEN REPLY@79+ F12
+IF~Global("gdDreamEvil","GLOBAL",-4)~THEN REPLY@80+ F13
+IF~Global("gdDreamEvil","GLOBAL",-4)~THEN REPLY@81+ F14
+IF~Global("gdDreamEvil","GLOBAL",-4)~THEN REPLY@82+ F15
+IF~Global("gdDreamEvil","GLOBAL",-4)~THEN REPLY@83+ F16
+IF~Global("gdDreamEvil","GLOBAL",-2)~THEN REPLY@84+ F21
+IF~Global("gdDreamEvil","GLOBAL",-2)~THEN REPLY@85+ F22
+IF~Global("gdDreamEvil","GLOBAL",-2)~THEN REPLY@86+ F23
+IF~Global("gdDreamEvil","GLOBAL",-2)~THEN REPLY@87+ F24
+IF~Global("gdDreamEvil","GLOBAL",-2)~THEN REPLY@88+ F25
+IF~Global("gdDreamEvil","GLOBAL",-2)~THEN REPLY@89+ F26
+IF~Global("gdDreamEvil","GLOBAL",0)~THEN REPLY@90+ F31
+IF~Global("gdDreamEvil","GLOBAL",0)~THEN REPLY@91+ F32
+IF~Global("gdDreamEvil","GLOBAL",0)~THEN REPLY@92+ F33
+IF~Global("gdDreamEvil","GLOBAL",0)~THEN REPLY@93+ F34
+IF~Global("gdDreamEvil","GLOBAL",0)~THEN REPLY@94+ F35
+IF~Global("gdDreamEvil","GLOBAL",0)~THEN REPLY@95+ F36
+IF~Global("gdDreamEvil","GLOBAL",2)~THEN REPLY@96+ F41
+IF~Global("gdDreamEvil","GLOBAL",2)~THEN REPLY@97+ F42
+IF~Global("gdDreamEvil","GLOBAL",2)~THEN REPLY@98+ F43
+IF~Global("gdDreamEvil","GLOBAL",2)~THEN REPLY@99+ F44
+IF~Global("gdDreamEvil","GLOBAL",2)~THEN REPLY@100+ F45
+IF~Global("gdDreamEvil","GLOBAL",2)~THEN REPLY@101+ F46
+IF~Global("gdDreamEvil","GLOBAL",4)~THEN REPLY@102+ F51
+IF~Global("gdDreamEvil","GLOBAL",4)~THEN REPLY@103+ F52
+IF~Global("gdDreamEvil","GLOBAL",4)~THEN REPLY@104+ F53
+IF~Global("gdDreamEvil","GLOBAL",4)~THEN REPLY@105+ F54
+IF~Global("gdDreamEvil","GLOBAL",4)~THEN REPLY@106+ F55
+IF~Global("gdDreamEvil","GLOBAL",4)~THEN REPLY@107+ F56
+IF~Global("gdDreamEvil","GLOBAL",6)~THEN REPLY@108+ F61
+IF~Global("gdDreamEvil","GLOBAL",6)~THEN REPLY@109+ F62
+IF~Global("gdDreamEvil","GLOBAL",6)~THEN REPLY@110+ F63
+IF~Global("gdDreamEvil","GLOBAL",6)~THEN REPLY@111+ F64
+IF~Global("gdDreamEvil","GLOBAL",6)~THEN REPLY@112+ F65
+IF~Global("gdDreamEvil","GLOBAL",6)~THEN REPLY@113+ F66
 
 CHAIN
 IF~~THEN Goriod F1
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI316")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI316")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F2
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI401")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI401")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F3
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI514")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI514")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F4
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI315")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI315")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F5
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI409")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI409")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F6
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI504")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI504")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F11
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI306")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI306")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F12
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI412")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI412")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F13
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI518")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI518")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F14
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI317")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI317")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F15
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI413")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI413")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F16
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI515")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI515")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F21
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI308")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI308")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F22
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI423")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI423")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F23
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI503")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI503")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F24
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI311")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI311")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F25
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI408")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI408")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F26
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI513")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI513")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F31
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI307")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI307")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F32
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI417")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI417")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F33
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI523")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI523")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F34
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI312")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI312")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F35
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI477")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI477")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F36
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI509")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI509")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F41
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI303")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI303")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F42
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI414")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI414")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F43
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI516")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI516")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F44
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI304")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI304")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F45
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI416")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI416")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F46
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI507")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI507")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F51
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI313")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI313")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F52
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI489")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI489")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F53
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI589")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI589")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F54
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI301")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI301")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F55
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI403")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI403")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F56
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI508")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI508")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F61
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI309")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI309")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F62
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI411")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI411")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F63
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI588")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI588")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F64
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI310")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI310")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F65
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI474")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI474")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF~~THEN Goriod F66
-~As you capture the light there is a startling flash and you are abruptly interrupted with your perspective capsized. A roar from the depths of your very being screams out in agony as if being rent asunder limb from limb. A burning pain swells inside your core until it is an inferno that penetrates your focus and completely engulfs your thoughts. Your mind is invaded as if held captive by an overpowering force that strikes straight through your body; as if washing over your entire existence.~
-=~There is an incredulous strike of energy upon you that rips straight through your very soul without even the slightest of resistance; swirling your reality and spinning your mind so much as a top. The deluge of power surging through your core as if for an eternity; tumultuously coursing through you with both chaos and determination. As you lay motionless waiting for your fate and without objection to the force of immense presence rushing through your prone body; you feel more like an insect being skewered upon a wall than a body recoiling after being struck limp and winded. As you feel your consciousness fading from this supernatural plane of existence you hear a rising cry from within the din; ringing throughout your ears an echoing voice booming 'Blood of murder!'~
-=~With a horrified cry you awake and spring to your feet. Your eyes are peeled wide and dart about the room; the sound of your heart audibly thrumming as a drum in your ears. Your chest is convulsing with heavy breath as a cold sweat washes a chill down your spine. Your body aches and angrily fights against your breath, with your muscles twisted wracked upon your entire body. Your fists are clenched tight with knuckles white. Your hands audibly creak within your grasp deadlocked.~ DO~ActionOverride(Player1,AddSpecialAbility("OLSPI512")) RestorePartyLocations()~ EXIT
+@114
+=@115
+=@116 DO~ActionOverride(Player1,AddSpecialAbility("OLSPI512")) RestorePartyLocations()~ EXIT
 
 CHAIN
 IF WEIGHT #-2~Global("GDRDream","GLOBAL",0)~ THEN Goriod Entry
-~Awake, my adopted child. Awake and face the terrible tests ahead of thee.~
-= ~Speak not, for I have but little time. This place is the Between. 'Tis not so much real, as it is a dream, though not so much a dream, as it is real.~
-= ~That which should be dead can cast its tentacles here, and your life is already wound within its grasping limbs. There is always hope, however, and your actions here shall determine the grip with which you are held.~
-= ~I can tell you no more of your true lineage than I did in life, but you will learn much here. You must pursue several items, for they are key to who you are. A Talon is the first, followed by the horn of great beast, a candle of light, a dagger of bone, a potion of blood and tears, and a blackened skull.~
-= ~I must leave you now, for 'tis a great strain to remain in the Between. No ordinary mortal can remain for long, so I must leave you to your search. I wish I could say I am leaving you here alone, but you are not.~
-= ~Seek wisely and true, and remember ye well: 'Tis often the journey that shapes the child, and not so much where they must go.~ DO~ActionOverride(Myself,DestroySelf())~ EXIT
+@117
+= @118
+= @119
+= @120
+= @121
+= @122 DO~ActionOverride(Myself,DestroySelf())~ EXIT

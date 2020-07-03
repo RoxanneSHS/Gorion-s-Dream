@@ -1,12 +1,12 @@
 BACKUP ~GorionsDream/backup~
 AUTHOR ~Roxanne + Within Amnesia~
 
-VERSION ~V0.7~
+VERSION ~V0.8~
 
 AUTO_TRA ~GorionsDream/translations/%s~
 LANGUAGE ~English~
          ~English~
-         ~GorionsDream/translations/setup.tra~
+         ~GorionsDream/translations/english/setup.tra~
 
 
 BEGIN ~Gorion's Dream Restored~
