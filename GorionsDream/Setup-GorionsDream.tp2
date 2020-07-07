@@ -7,6 +7,9 @@ AUTO_TRA ~GorionsDream/translations/%s~
 LANGUAGE ~English~
          ~English~
          ~GorionsDream/translations/english/setup.tra~
+LANGUAGE ~Russian (by yota13 of arcanecoast.ru)~
+         ~Russian~
+         ~GorionsDream/translations/russian/setup.tra~
 
 
 BEGIN ~Gorion's Dream Restored~
